@@ -5,23 +5,25 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://java.sun.com/jsf/facelets">
 <h:head>
-    <title>Cadastro de Usuário</title>
-    <link rel="stylesheet" type="text/css" href="#{request.contextPath}/css/main.css" />
+        <title>Cadastro de Usuario</title>
+        <link rel="stylesheet" type="text/css" href="#{request.contextPath}/css/main.css" />
 </h:head>
-<h:form>
-    <h:outputLabel for="nome" value="Nome:" />
-    <h:inputText id="nome" value="#{cadastroBean.nome}" />
-    <br/><br/>
-    <h:commandButton value="Enviar" action="#{cadastroBean.salvar}" />
-    
-    <div class="nomes-container">
-        <h:outputText value="Nomes cadastrados:" rendered="#{not empty cadastroBean.nomes}" />
-        <ul>
-            <ui:repeat value="#{cadastroBean.nomes}" var="n">
-                <li><h:outputText value="#{n}" /></li>
-            </ui:repeat>
-        </ul>
-    </div>
-</h:form>
+        <h:body>
+	<!-- Formulário de cadastro -->
+    <h:form id="cadastro">
+        <h:outputLabel for="nome" value="Nome:" />
+        <h:inputText id="nome" value="#{cadastroBean.nome}" />
+        <br/><br/>
+        <h:commandButton value="Enviar" action="#{cadastroBean.salvar}" />
 
+        <div class="nomes-container">
+            <h:outputText value="Nomes cadastrados:" rendered="#{not empty cadastroBean.nomes}" />
+            <ul>
+                <ui:repeat value="#{cadastroBean.nomes}" var="n">
+                    <li><h:outputText value="#{n}" /></li>
+                </ui:repeat>
+            </ul>
+        </div>
+    </h:form>
+</h:body>
 </html>
